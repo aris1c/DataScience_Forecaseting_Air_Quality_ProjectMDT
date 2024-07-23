@@ -31,15 +31,13 @@ pred = pd.DataFrame(pred, columns=['CO2'])
 
 if st.button("Predict"):
 
-    col1, col2 = st.columns([2, 3])
+    col1, col2 = st.columns([3, 1])
     with col1:
         st.subheader("Hasil Prediksi:")
-        # Set judul kolom
-        pred.columns = ['Date', 'CO2']
         st.dataframe(pred.style.format("{:.2f}").highlight_min(axis=0, color='lightgreen').highlight_max(axis=0, color='#FF6347'))
 
     with col2:
-        fig, ax = plt.subplots(figsize=(10, 6))
-        df['CO2'].plot(style='--', color='gray', legend=True, label='known', ax=ax)
-        pred.set_index('Date')['CO2'].plot(color='b', legend=True, label='Prediction', ax=ax)
+        fig, ax = plt.subplots()
+        df['CO2'].plot(style='--', color='gray', legend=True, label='known')
+        pred['CO2'].plot(color='b', legend=True, label='Prediction')
         st.pyplot(fig)
