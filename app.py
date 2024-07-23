@@ -28,18 +28,16 @@ year = st.slider("Tentukan Tahun", 1, 30, step=1)
 
 pred = model.forecast(year)
 pred = pd.DataFrame(pred, columns=['CO2'])
-pred['Date'] = pd.date_range(start=df.index[-1], periods=len(pred), freq='Y')
-pred = pred[['Date', 'CO2']]
 
 if st.button("Predict"):
 
-    col1, col2 = st.columns([3, 1])
+    col1, col2 = st.columns([2, 3])
     with col1:
         st.subheader("Hasil Prediksi:")
-        st.dataframe(pred.style.format("{:.2f}").highlight_min(axis=0, color='lightgreen').highlight_max(axis=0, color='#FF6347'), height=600)
+        st.dataframe(pred.style.format("{:.2f}").highlight_min(axis=0, color='lightgreen').highlight_max(axis=0, color='#FF6347'))
 
     with col2:
-        fig, ax = plt.subplots(figsize=(10, 6))
-        df['CO2'].plot(style='--', color='gray', legend=True, label='known', ax=ax)
-        pred.set_index('Date')['CO2'].plot(color='b', legend=True, label='Prediction', ax=ax)
+        fig, ax = plt.subplots()
+        df['CO2'].plot(style='--', color='gray', legend=True, label='known')
+        pred['CO2'].plot(color='b', legend=True, label='Prediction')
         st.pyplot(fig)
