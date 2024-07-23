@@ -1,4 +1,4 @@
-numpy<2
+numpy
 pandas
 scikit-learn
 seaborn
@@ -6,3 +6,4 @@ statsmodels
 streamlit==1.15.0
 matplotlib==3.5.2
 openpyxl
+matplotlib
