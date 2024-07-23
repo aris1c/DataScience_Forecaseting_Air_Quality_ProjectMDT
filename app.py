@@ -44,7 +44,7 @@ if st.button("Predict"):
 
 st.markdown(
 """
-<div style="text-align: center; color: #FFFFFF;">
+<div style="text-align: center; color: #CCCCCC;">
     <p>Powered by Aris Candra</p>
 </div>
 """,
