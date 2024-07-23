@@ -41,3 +41,11 @@ if st.button("Predict"):
         df['CO2'].plot(style='--', color='gray', legend=True, label='known')
         pred['CO2'].plot(color='b', legend=True, label='Prediction')
         st.pyplot(fig)
+
+st.markdown(
+"""
+<div style="text-align: center; color: #FFFFFF;">
+    <p>Powered by Aris Candra</p>
+</div>
+""",
+unsafe_allow_html=True)
