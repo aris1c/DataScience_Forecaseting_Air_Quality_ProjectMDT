@@ -31,7 +31,7 @@ pred = pd.DataFrame(pred, columns=['CO2'])
 
 if st.button("Predict"):
 
-    col1, col2 = st.columns([3, 1])
+    col1, col2 = st.columns([2, 3])
     with col1:
         st.subheader("Hasil Prediksi:")
         st.dataframe(pred.style.format("{:.2f}").highlight_min(axis=0, color='lightgreen').highlight_max(axis=0, color='#FF6347'))
